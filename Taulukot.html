@@ -1,0 +1,70 @@
+<!DOCTYPE html>
+<html lang="en">
+<head>
+    <meta charset="UTF-8">
+    <title>Taulukot</title>
+</head>
+<body>
+<button onclick="myFunction()">koirat</button>
+<script>
+    //1.
+    function mapReverse(array, fn) {
+        return array.reduceRight(function(result, el) {
+            result.push(fn(el));
+            return result;
+        }, []);
+    }
+
+    const luku = prompt('Anna ensimmäinen luku:');
+    const luku2 = prompt('Anna toinen luku:');
+    const luku3 = prompt('Anna kolmas luku:');
+    const luku4 = prompt('Anna neljäs luku:');
+    const luku5 = prompt('Anna viides luku:');
+    document.write(mapReverse([luku, luku2, luku3, luku4, luku5], function(i) {
+        return i;
+    }));
+    document.write('</br>');
+
+    //2.
+    const osm = prompt('Anna osallistujien määrä:');
+    const nimet = [];
+    for (let i = 0; i < osm; i++) {
+        let osni = prompt('Osallistujan nimi:');
+        nimet.push(osni);
+    }
+    ;
+    document.write('<ol>');
+    for (let i = 0; i < nimet.length; i++) {
+        document.write('<li>' + nimet[i] + '</li>');
+    }
+    document.write('</ol>');
+    //3.
+    const nimi = prompt('Anna ensimmäinen koiran nimi:');
+    const nimi2 = prompt('Anna toinen koiran nimi:');
+    const nimi3 = prompt('Anna kolmas koiran nimi:');
+    const nimi4 = prompt('Anna neljäs koiran nimi:');
+    const nimi5 = prompt('Anna viides koiran nimi:');
+    const nimi6 = prompt('Anna kuudes koiran nimi:');
+    let dog = [nimi, nimi2, nimi3, nimi4, nimi5, nimi6];
+
+    function myFunction() {
+        dog.sort();
+        dog.reverse();
+        document.write(dog);
+    }
+
+    document.write('</br>');
+
+    //4.
+    let luku6 = 1;
+    const luvut = [];
+    do {
+        luku6 = prompt('Anna luku:');
+        luvut.push(luku6);
+    } while (luku6 > 0);
+    luvut.sort(function (a, b) {  return b - a;  });
+    document.write(luvut);
+
+</script>
+</body>
+</html>
